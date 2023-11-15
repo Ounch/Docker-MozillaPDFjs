@@ -1,4 +1,4 @@
-build image:
+image:
 	docker build -t ounch/pdfjs .
 
 compile:

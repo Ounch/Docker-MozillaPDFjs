@@ -1,11 +1,22 @@
-### Build image
-sudo docker build -t ounch/pdfjs .
+# Instructions
 
-### Run Manually
-docker run -p 8888:8888 ounch/pdfjs
+## Build the image with Dockerfile
+make image
 
-### Run via Docker Compose
-docker-compose up -d
+## Run npm install
+make compile
 
-### Test
+## Build gulp
+make build
+
+## Start the gulp server
+make up
+
+## Stop the gulp server
+make down
+
+## Enter into container's shell
+make shell
+
+### Test URL
 http://localhost:8888/web/viewer.html
