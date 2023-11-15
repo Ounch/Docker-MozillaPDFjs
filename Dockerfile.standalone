@@ -1,0 +1,15 @@
+FROM node:19
+RUN apt-get update
+RUN apt-get -y install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+RUN npm install -g gulp-cli
+#RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+RUN mkdir -p /home/node/app 
+#USER node
+WORKDIR /home/node/app
+
+#COPY ./pdf.js/package*.json ./
+#COPY --chown=node:node ./pdf.js/ .
+COPY ./pdf.js/ .
+RUN npm install
+EXPOSE 8888
+CMD ["gulp", "server"]
